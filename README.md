@@ -80,15 +80,6 @@ Then push to your preferred docker registry.
 By default, the container will run a wrapper script `run.sh`, which takes the
 output of `cloudsqltail` and sends it along to honeycomb via `honeytail`.
 
-### Running Locally in Docker
-
-`cloudtailsql` needs Google Cloud access credentials (to fetch the Pub/Sub
-Subscription). To get this locally, run docker with
-
-```
--v $HOME/.config/gcloud:/root/.config/gcloud
-```
-
 ## Config and deploy
 
 ### Required environment variables
@@ -106,3 +97,22 @@ Subscription). To get this locally, run docker with
   honeycomb).  The latter flag also means that `HONEYCOMB_WRITEKEY` is not
   verified, so it can be left unset.
 - `DATASET` the honeycomb dataset to write to; defaults to `postgres`
+
+## Development
+
+### Go
+
+The `cloudsqltail` command uses go modules to track it's depedencies, so you'll
+need at least Go 1.11 or higher, with module mode enabled via `GO111MODULE=on`.
+With >=1.12, `make` should work out of the box with no additional configuration
+necessary.
+
+### Running in Docker
+
+`cloudtailsql` needs Google Cloud access credentials (to fetch the Pub/Sub
+Subscription). To get this locally, run docker with
+
+```
+-v $HOME/.config/gcloud:/root/.config/gcloud
+```
+
