@@ -62,9 +62,9 @@ flags in your `gcloud sql instances patch` command, if any are set.)
 
 Ingestion is done via [Cloud Pub/Sub](https://cloud.google.com/pubsub/).
 
-To use this, set up a Stackdriver sink of your Postgres logs to a Pub/Sub topic:
-[](https://cloud.google.com/logging/docs/export/configure_export_v2). You will
-also need to create a
+To use this, [set up a Stackdriver
+sink](https://cloud.google.com/logging/docs/export/configure_export_v2) of your
+Postgres logs to a Pub/Sub topic.  You will also need to create a
 [subscription](https://cloud.google.com/pubsub/docs/subscriber) to that topic.
 Note the subscription name you provide, as it is necessary to configure
 cloudsqltail.
